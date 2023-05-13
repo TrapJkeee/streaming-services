@@ -1,0 +1,27 @@
+.catalog {
+  &__top {
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    color: var(--primery);
+  }
+  &__filters {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+  }
+  &__genre {
+    width: 300px;
+  }
+  &__sort {
+    width: 220px;
+  }
+
+  &__body {
+    padding-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+  }
+}

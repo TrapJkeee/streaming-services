@@ -1,0 +1,19 @@
+.carusel {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  &-block {
+    padding-top: 10px;
+    margin: 0 auto;
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: var(--background-opacity);
+  color: var(--white-opacity);
+  padding: 35px 20px;
+  &:hover {
+    color: var(--white);
+  }
+}

@@ -1,0 +1,48 @@
+.header {
+  &__row {
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    gap: 64px;
+  }
+  &__logo {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__menu {
+    flex: 1 1 auto;
+    &-body {
+      display: flex;
+      gap: 24px;
+      color: var(--white-opacity);
+    }
+    &-item {
+      display: flex;
+      gap: 8px;
+      &:hover {
+        color: var(--white);
+        cursor: pointer;
+      }
+      &:hover > span > svg > path {
+        fill: var(--white);
+      }
+    }
+  }
+  &__search {
+    cursor: pointer;
+
+    &:hover > svg > path {
+      fill: var(--white);
+    }
+  }
+}
+
+.active {
+  color: var(--white);
+  svg > path {
+    fill: var(--white);
+  }
+}

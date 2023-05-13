@@ -1,0 +1,43 @@
+.cast {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  &__body {
+    color: var(--primery);
+
+    margin: 0 auto;
+  }
+  &__title {
+  }
+  &__row {
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+    height: 210px;
+    gap: 2px;
+    font-size: 14px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__foto {
+    border-radius: 50%;
+    width: 135px;
+    height: 135px;
+    overflow: hidden;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__name {
+    margin-top: 10px;
+  }
+  &__job {
+    color: var(--white-opacity);
+  }
+}

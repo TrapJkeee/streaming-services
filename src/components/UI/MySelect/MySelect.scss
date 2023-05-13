@@ -1,0 +1,36 @@
+.custom-select {
+  &__control {
+    background-color: var(--background-opacity) !important;
+    border: none !important;
+    &--menu-is-open {
+      background-color: var(--background-opacity) !important;
+    }
+    &--is-focused {
+      box-shadow: 0 0 0 1px var(--white-opacity) !important;
+    }
+  }
+  &__placeholder {
+    color: var(--primery) !important;
+  }
+  &__single-value {
+    color: var(--primery) !important;
+  }
+  &__indicators {
+    cursor: pointer;
+  }
+  &__menu {
+    background-color: var(--black) !important;
+    color: var(--primery) !important;
+    z-index: 5 !important;
+  }
+  &__option {
+    cursor: pointer !important;
+
+    &--is-focused {
+      background-color: var(--white-opacity) !important;
+    }
+    &--is-selected {
+      background-color: var(--white-opacity) !important;
+    }
+  }
+}

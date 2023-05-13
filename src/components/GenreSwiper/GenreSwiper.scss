@@ -1,0 +1,37 @@
+.genre {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 70px;
+  }
+  &__type {
+    max-width: 300px;
+    color: var(--primery);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    &::after {
+      content: " >";
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__swiper {
+  }
+}
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: var(--background-opacity);
+  color: var(--white-opacity);
+  padding: 35px 20px;
+  &:hover {
+    color: var(--white);
+  }
+}

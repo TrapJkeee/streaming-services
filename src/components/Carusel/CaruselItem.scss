@@ -1,0 +1,62 @@
+.swiper {
+  overflow: visible;
+  &-item {
+    position: relative;
+    width: auto;
+    height: 610px;
+    // background-color: rgb(253, 0, 0);
+    border-radius: 15px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 3px solid var(--background-opacity);
+    &__preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &__content {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      right: 30px;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      gap: 5px;
+      align-items: center;
+    }
+    &__text {
+      display: flex;
+      flex-direction: column;
+      max-width: 90%;
+      gap: 9px;
+      background-color: var(--background-opacity);
+      padding: 10px 20px;
+      color: var(--primery);
+    }
+    &__title {
+      font-weight: 600;
+      font-size: 28px;
+    }
+    &__subtitle {
+      display: flex;
+      gap: 20px;
+      font-weight: 400;
+      color: var(--primery);
+    }
+    &__rating {
+    }
+    &__year {
+    }
+    &__genre {
+      text-transform: capitalize;
+    }
+    &__icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--background-opacity);
+      padding: 5px;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@import-normalize;
+@import "./fonts/fonts.scss";
+
+:root {
+  --white: #ffffff;
+  --white-opacity: rgb(255, 255, 255, 0.5);
+  --black: #000000;
+
+  --background-opacity: rgba(71, 77, 71, 0.475);
+
+  --primery: var(--white);
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  // font-family: "Roboto Slab", serif;
+
+  font-family: "Noto Sans", sans-serif;
+  line-height: 150%;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: var(--black);
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+button {
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
