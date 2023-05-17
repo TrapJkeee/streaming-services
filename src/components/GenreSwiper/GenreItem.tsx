@@ -1,4 +1,5 @@
 import Item from "components/Item/Item";
+import { memo } from "react";
 import { useSelector } from "react-redux";
 import { selectMovies } from "store/MoviesSlice/moviesSelector";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -39,4 +40,4 @@ const GenreItem = ({ title, data }: GenreItemProps) => {
   );
 };
 
-export default GenreItem;
+export default memo(GenreItem);

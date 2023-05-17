@@ -19,7 +19,6 @@ const ItemMainInfo = ({ currentFilm }: ItemMainInfoProps) => {
     year,
     persons,
   } = currentFilm;
-  console.log(backdrop);
   return (
     <div
       className="item-info__main"
@@ -27,9 +26,9 @@ const ItemMainInfo = ({ currentFilm }: ItemMainInfoProps) => {
     >
       <Container>
         <div className="item-info__content">
-          {logo.url ? (
+          {logo?.url ? (
             <div className="item-info__avatar">
-              <img className="item-info__img" src={`${logo.url}`} />
+              <img className="item-info__img" src={`${logo.url}`} alt={name} />
             </div>
           ) : (
             <span className="item-info__name">{name}</span>
@@ -54,7 +53,7 @@ const ItemMainInfo = ({ currentFilm }: ItemMainInfoProps) => {
             )}
           </div>
           <div className="item-info__short-description">{shortDescription}</div>
-          <ItemInfoCastCrew persons={persons} />
+          {persons && <ItemInfoCastCrew persons={persons} />}
         </div>
       </Container>
     </div>

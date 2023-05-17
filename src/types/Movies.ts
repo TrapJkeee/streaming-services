@@ -34,7 +34,7 @@ type Watchability = {
 export type Movies = {
   alternativeName: string | null;
   countries: Countries[];
-  description: string;
+  description: string | null;
   enName: string | null;
   externalId: Externalid;
   genres: Genres[];
@@ -107,5 +107,5 @@ export type CurrentFilm = Pick<
 > & {
   facts: Facts[];
   backdrop: BackDrop;
-  persons: Persons[];
+  persons: Persons[] | null;
 };

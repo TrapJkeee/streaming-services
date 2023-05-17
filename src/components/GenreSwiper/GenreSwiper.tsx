@@ -1,4 +1,5 @@
 import GenreItem from "./GenreItem";
+import { memo } from "react";
 import { Container } from "components/Contanier/Container";
 
 import "swiper/css";
@@ -23,4 +24,4 @@ const GenreSwiper = ({ title, data }: GenreSwiperProps) => {
   );
 };
 
-export default GenreSwiper;
+export default memo(GenreSwiper);

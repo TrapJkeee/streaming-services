@@ -1,14 +1,13 @@
-import Carusel from "components/Carusel/Carusel";
-import GenreSwiper from "components/GenreSwiper/GenreSwiper";
+import { useState, memo } from "react";
 import { useSelector } from "react-redux";
+
 import { selectGenres } from "store/GenresSlice/genresSelector";
+import GenreSwiper from "components/GenreSwiper/GenreSwiper";
+import Carusel from "components/Carusel/Carusel";
 
 const HomePage = () => {
-  const { newCartoons } = useSelector(selectGenres);
-  const { comedyFilms } = useSelector(selectGenres);
-  const { daramaFilms } = useSelector(selectGenres);
-  const { newFilms } = useSelector(selectGenres);
-  const { thrillerFilms } = useSelector(selectGenres);
+  const { newCartoons, comedyFilms, daramaFilms, newFilms, thrillerFilms } =
+    useSelector(selectGenres);
 
   return (
     <>
@@ -22,4 +21,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default memo(HomePage);

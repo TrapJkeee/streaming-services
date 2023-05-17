@@ -1,6 +1,12 @@
-import MySelect from "components/UI/MySelect/MySelect";
-import { useSelector } from "react-redux";
-import { selectMovies } from "store/MoviesSlice/moviesSelector";
+import { useState, useEffect } from "react";
+import MySelect, { SelectOptions } from "components/UI/MySelect/MySelect";
+import { OnChangeValue, SingleValue } from "react-select";
+import {
+  fetchMoviesByFilterData,
+  fetchTVSeriesByFilterData,
+} from "store/FilmsByFilter/filmsByFilterData";
+import { useAppDispatch } from "store/redux-hooks";
+import { useLocation } from "react-router-dom";
 
 type Options = {
   value: string;
@@ -62,36 +68,39 @@ const genres: Options[] = [
   },
 ];
 
-const sort: Options[] = [
-  {
-    value: "rating.kp",
-    label: "По рейтингу",
-  },
-  {
-    value: "year",
-    label: "По дате выхода",
-  },
-];
-
 const CatalogFilters = () => {
-  const { data } = useSelector(selectMovies);
+  const [currentValue, setCurrentValue] = useState("");
 
-  console.log(data);
+  const dispatch = useAppDispatch();
+  const { pathname } = useLocation();
 
+  // console.log(pathname);
+
+  useEffect(() => {
+    // if (!currentValue) return;
+    if (pathname === "/films") {
+      dispatch(fetchMoviesByFilterData(currentValue));
+    }
+  }, [currentValue]);
+
+  const changeHandler = (newValue: SingleValue<SelectOptions>) => {
+    console.log(newValue, "newValue");
+    if (!newValue) {
+      setCurrentValue("");
+      return;
+    }
+    setCurrentValue(newValue.value);
+  };
+  console.log(currentValue);
   return (
     <div className="catalog__filters">
       <div className="catalog__genre">
-        <MySelect options={genres} placeholder="Жанры" />
+        <MySelect
+          options={genres}
+          placeholder="Жанры"
+          onChange={changeHandler}
+        />
       </div>
-      <div className="catalog__sort">
-        <MySelect options={sort} placeholder="Сортировать по..." />
-      </div>
-      {/* <div className="catalog__rating">
-        <MySelect options={genres} placeholder="Рейтинг" />
-      </div>
-      <div className="catalog__year">
-        <MySelect options={genres} placeholder="Год" />
-      </div> */}
     </div>
   );
 };

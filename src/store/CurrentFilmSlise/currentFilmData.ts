@@ -11,7 +11,6 @@ export const fetchCurrentFilmData = createAsyncThunk<CurrentFilm[], number>(
     );
 
     const data = await response.json();
-    console.log(data.docs[0], "1");
 
     return data.docs;
   }

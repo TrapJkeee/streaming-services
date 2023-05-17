@@ -9,6 +9,5 @@ export const fetchAllMoviesData = createAsyncThunk("movies", async () => {
 
   const data = await response.json();
 
-  console.log(data.docs);
   return data.docs;
 });

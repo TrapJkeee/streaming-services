@@ -1,7 +1,7 @@
 import CatalogCartoons from "components/Catalog/CatalogCartoons";
 
 const CatalogFilmsPage = () => {
-  return <CatalogCartoons />;
+  // return <CatalogCartoons />;
 };
 
 export default CatalogFilmsPage;

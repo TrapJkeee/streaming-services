@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect, memo } from "react";
 import "./MySelect.scss";
-import Select, { OnChangeValue, SingleValue } from "react-select";
+import Select, { ActionMeta, OnChangeValue, SingleValue } from "react-select";
+import { fetchMoviesByFilterData } from "store/FilmsByFilter/filmsByFilterData";
+import { useAppDispatch } from "store/redux-hooks";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 
-type SelectOptions = {
+export type SelectOptions = {
   value: string;
   label: string;
 };
@@ -10,41 +13,22 @@ type SelectOptions = {
 interface MySelectProps {
   options: SelectOptions[];
   placeholder: string;
-  value?: SelectOptions;
+  onChange: (value: SingleValue<SelectOptions>) => void;
 }
 
-const MySelect = ({ options, value, placeholder }: MySelectProps) => {
-  const [currentValue, setCurrentValue] = useState("");
-
-  const getValue = () => {
-    return currentValue
-      ? options.find((item) => item.value === currentValue)
-      : setCurrentValue("");
-  };
-
-  const changeHandler = (newValue: any) => {
-    if (!newValue) {
-      // setCurrentValue("");
-      return;
-    }
-    setCurrentValue(newValue.value);
-  };
-
-  console.log(currentValue);
+const MySelect = ({ options, placeholder, onChange }: MySelectProps) => {
   return (
-    <div>
+    <>
       <Select
         classNamePrefix="custom-select"
         options={options}
         placeholder={placeholder}
-        isLoading={false}
         isClearable={true}
         isSearchable={true}
-        // value={getValue()}
-        onChange={changeHandler}
+        onChange={(e) => onChange(e)}
       />
-    </div>
+    </>
   );
 };
 
-export default MySelect;
+export default memo(MySelect);

@@ -24,10 +24,21 @@ const ItemInfo = () => {
   }, [idNum]);
 
   const { data, status } = useSelector(selectCurrentFilm);
-  console.log(data[0].persons);
-  if (status === "loading") {
+
+  // const { status } = useSelector(selectCurrentFilm);
+
+  // console.log(data[0].description, "desc");
+
+  const status2 = "loading";
+
+  console.log(status, "status");
+
+  if (data.length === 0 || status === "loading") {
     return <div className="item-info__description">Загрузка</div>;
   }
+
+  // console.log(data, "data");
+
   return (
     <section className="item-info">
       <div className="item-info__background">
@@ -37,9 +48,11 @@ const ItemInfo = () => {
         {data[0].description && (
           <div className="item-info__description">{data[0].description}</div>
         )}
-        <div className="item-info__cast-info">
-          <Cast persons={data[0].persons} />
-        </div>
+        {data[0].persons && (
+          <div className="item-info__cast-info">
+            <Cast persons={data[0].persons} />
+          </div>
+        )}
 
         {/* <h2 className="item-info__facts">А вы знали?</h2> */}
       </Container>

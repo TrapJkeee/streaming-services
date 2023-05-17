@@ -12,7 +12,6 @@ const ItemInfoCastCrew = ({ persons }: ItemInfoCastCrewProps) => {
     (item, i) => item.enProfession === "actor" && i < 3
   );
 
-  console.log(actors, "dir");
   return (
     <div className="item-info__cast-crew">
       <span className="item-info__director">

@@ -42,7 +42,7 @@ function App() {
         <Route path="/" index element={<HomePage />} />
         <Route path="/films" element={<CatalogFilmsPage />} />
         <Route path="/serials" element={<CatalogSerialsPage />} />
-        <Route path="/cartoons" element={<CatalogCartoonsPage />} />
+        {/* <Route path="/cartoons" element={<CatalogCartoonsPage />} /> */}
         <Route path="/film/:id" element={<FilmPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
