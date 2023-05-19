@@ -25,3 +25,20 @@
     grid-gap: 10px;
   }
 }
+
+.skeleton {
+  width: 235px;
+  height: 350px;
+  border-radius: 15px;
+  animation: fade 1s linear infinite alternate;
+  background-image: linear-gradient(-40deg, #444247, #aca8a8);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}

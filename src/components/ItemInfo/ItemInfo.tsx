@@ -3,7 +3,7 @@ import { Container } from "components/Contanier/Container";
 import { useSelector } from "react-redux";
 import { selectMovies } from "store/MoviesSlice/moviesSelector";
 
-import Cast from "components/Cast/Cast";
+import CastSwiper from "components/CastSwiper/CastSwiper";
 import "./ItemInfo.scss";
 import { useEffect } from "react";
 import { useAppDispatch } from "store/redux-hooks";
@@ -25,19 +25,9 @@ const ItemInfo = () => {
 
   const { data, status } = useSelector(selectCurrentFilm);
 
-  // const { status } = useSelector(selectCurrentFilm);
-
-  // console.log(data[0].description, "desc");
-
-  const status2 = "loading";
-
-  console.log(status, "status");
-
   if (data.length === 0 || status === "loading") {
     return <div className="item-info__description">Загрузка</div>;
   }
-
-  // console.log(data, "data");
 
   return (
     <section className="item-info">
@@ -50,7 +40,7 @@ const ItemInfo = () => {
         )}
         {data[0].persons && (
           <div className="item-info__cast-info">
-            <Cast persons={data[0].persons} />
+            <CastSwiper persons={data[0].persons} />
           </div>
         )}
 

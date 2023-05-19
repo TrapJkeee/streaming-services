@@ -15,13 +15,6 @@
     display: flex;
     gap: 10px;
     align-items: center;
-    cursor: pointer;
-    &::after {
-      content: " >";
-    }
-    &:hover {
-      text-decoration: underline;
-    }
   }
   &__swiper {
   }
@@ -34,4 +27,7 @@
   &:hover {
     color: var(--white);
   }
+}
+
+.skeleton-swiper {
 }

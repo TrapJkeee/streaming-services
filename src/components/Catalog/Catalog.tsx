@@ -9,18 +9,19 @@ import { Movies } from "types";
 export interface CatalogProps {
   data: Movies[];
   title: string;
+  status: string;
 }
 
-const Catalog = ({ title, data }: CatalogProps) => {
+const Catalog = ({ title, data, status }: CatalogProps) => {
   return (
     <section>
       <Container>
         <div className="catalog">
           <div className="catalog__top">
             <h1 className="catalog__title">{title}</h1>
-            <CatalogFilters />
+            {/* <CatalogFilters /> */}
           </div>
-          <CatalogBody data={data} />
+          <CatalogBody data={data} status={status} />
         </div>
       </Container>
     </section>

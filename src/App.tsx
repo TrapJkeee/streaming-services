@@ -20,15 +20,16 @@ import {
   fetchThrillerFilmsData,
 } from "store/GenresSlice/genresData";
 import FilmPage from "pages/FilmPage";
+import PersonPage from "pages/PersonPage";
 
 function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllMoviesData());
-    dispatch(fetchAllSeriesData());
-    dispatch(fetchAllCartoonsData());
+    // dispatch(fetchAllMoviesData());
+    // dispatch(fetchAllSeriesData());
     dispatch(fetchTopMoviesData());
+    dispatch(fetchAllCartoonsData());
     dispatch(fetchComedyFilmsData());
     dispatch(fetchDramaFilmsData());
     dispatch(fetchNewCartoonsData());
@@ -42,8 +43,9 @@ function App() {
         <Route path="/" index element={<HomePage />} />
         <Route path="/films" element={<CatalogFilmsPage />} />
         <Route path="/serials" element={<CatalogSerialsPage />} />
-        {/* <Route path="/cartoons" element={<CatalogCartoonsPage />} /> */}
+        <Route path="/cartoons" element={<CatalogCartoonsPage />} />
         <Route path="/film/:id" element={<FilmPage />} />
+        <Route path="/person/:id" element={<PersonPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

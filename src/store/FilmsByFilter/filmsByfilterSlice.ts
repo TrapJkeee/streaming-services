@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-  fetchMoviesByFilterData,
-  fetchTVSeriesByFilterData,
-} from "./filmsByFilterData";
+import { fetchMoviesByFilterData } from "./filmsByFilterData";
 import { MoviesSlice } from "types";
 
 const initialState: MoviesSlice = {

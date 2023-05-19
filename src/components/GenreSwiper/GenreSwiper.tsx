@@ -17,7 +17,8 @@ const GenreSwiper = ({ title, data }: GenreSwiperProps) => {
     <div className="genre">
       <Container>
         <div className="genre__body">
-          <GenreItem title={title} data={data} />
+          <h2 className="genre__type">{title}</h2>
+          <GenreItem data={data} />
         </div>
       </Container>
     </div>

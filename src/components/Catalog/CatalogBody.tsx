@@ -4,15 +4,17 @@ import { useSelector } from "react-redux";
 import { selectFilmsByFilter } from "store/FilmsByFilter/filmsByFilterSelector";
 import { selectMovies } from "store/MoviesSlice/moviesSelector";
 import { Movies } from "types";
+import CatalogSkeleton from "./CatalogSkeleton";
 
 interface CatalogBodyProps {
   data: Movies[];
+  status: string;
 }
 
-const CatalogBody = ({ data }: CatalogBodyProps) => {
-  const { status } = useSelector(selectMovies);
-
-  const { status: statusFilter } = useSelector(selectFilmsByFilter);
+const CatalogBody = ({ data, status }: CatalogBodyProps) => {
+  if (status === "loading") {
+    return <CatalogSkeleton />;
+  }
 
   return (
     <div className="catalog__body">

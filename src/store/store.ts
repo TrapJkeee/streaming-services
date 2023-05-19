@@ -6,6 +6,7 @@ import topMoviesReduser from "./TopMoviesSlice/topMoviesSlice";
 import genresReduser from "./GenresSlice/genresSlice";
 import currentFilmReduce from "./CurrentFilmSlise/currentFilsSlice";
 import filmsByFilterReduce from "./FilmsByFilter/filmsByfilterSlice";
+import personReduce from "./PersonSlice/personSlice";
 
 const rootReduser = combineReducers({
   movies: moviesReduser,
@@ -15,6 +16,7 @@ const rootReduser = combineReducers({
   genres: genresReduser,
   currentFilm: currentFilmReduce,
   filmsByFilter: filmsByFilterReduce,
+  person: personReduce,
 });
 
 export const store = configureStore({

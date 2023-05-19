@@ -68,6 +68,16 @@ type Facts = {
   spoiler: boolean;
 };
 
+export type Trailers = {
+  url: string;
+  name: string;
+  site: string;
+  type: string;
+};
+type Videos = {
+  trailers: Trailers[] | [];
+  teasers?: [];
+};
 export type Persons = {
   id: number;
   photo: string | null;
@@ -85,6 +95,7 @@ export type TopMovies = Pick<
   "id" | "rating" | "genres" | "name" | "year"
 > & {
   backdrop: BackDrop;
+  videos?: Videos | null;
 };
 
 export type MoviesSlice = {

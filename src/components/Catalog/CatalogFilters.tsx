@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
 import MySelect, { SelectOptions } from "components/UI/MySelect/MySelect";
 import { OnChangeValue, SingleValue } from "react-select";
-import {
-  fetchMoviesByFilterData,
-  fetchTVSeriesByFilterData,
-} from "store/FilmsByFilter/filmsByFilterData";
+import { fetchMoviesByFilterData } from "store/FilmsByFilter/filmsByFilterData";
 import { useAppDispatch } from "store/redux-hooks";
 import { useLocation } from "react-router-dom";
 

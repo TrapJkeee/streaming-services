@@ -8,10 +8,15 @@ import { Navigation } from "swiper";
 import CaruselItem from "./CaruselItem";
 import { useSelector } from "react-redux";
 import { selectTopMovies } from "store/TopMoviesSlice/topMoviesSelector";
+import { useState } from "react";
+import CaruselSkeleton from "./CaruselSkeleton";
 
 const Carusel = () => {
-  const { data } = useSelector(selectTopMovies);
+  const { data, status } = useSelector(selectTopMovies);
 
+  if (status === "loading") {
+    return <CaruselSkeleton />;
+  }
   return (
     <section className="carusel">
       <div className="carusel-block">

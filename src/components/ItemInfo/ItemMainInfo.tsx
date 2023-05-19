@@ -28,7 +28,12 @@ const ItemMainInfo = ({ currentFilm }: ItemMainInfoProps) => {
         <div className="item-info__content">
           {logo?.url ? (
             <div className="item-info__avatar">
-              <img className="item-info__img" src={`${logo.url}`} alt={name} />
+              <img
+                className="item-info__img"
+                src={`${logo.url}`}
+                alt={name}
+                loading="lazy"
+              />
             </div>
           ) : (
             <span className="item-info__name">{name}</span>

@@ -27,8 +27,8 @@ const Item = ({
             src={poster}
             alt={title}
             className="item__img"
-            loading="lazy"
-            decoding="async"
+            // loading="lazy"
+            // decoding="async"
           />
         </div>
         <div className="item__front">

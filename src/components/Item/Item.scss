@@ -13,6 +13,7 @@
     height: 350px;
     overflow: hidden;
     border-radius: 15px;
+
     &:hover ~ .item__front {
       opacity: 1;
     }
@@ -69,4 +70,8 @@
     font-size: 20px;
     flex: 1 1 auto;
   }
+}
+
+.skeleton {
+  background-color: aqua;
 }
