@@ -11,7 +11,7 @@ export const fetchMoviesByFilterData = createAsyncThunk<Movies[], string>(
     }
 
     const response = await fetch(
-      `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=50&type=movie&genres.name=${genre}&token=${API_KEY2}`
+      `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=50&type=movie&${genre}&token=${API_KEY2}`
     );
 
     const data = await response.json();
@@ -20,19 +20,36 @@ export const fetchMoviesByFilterData = createAsyncThunk<Movies[], string>(
   }
 );
 
-// export const fetchTVSeriesByFilterData = createAsyncThunk<Movies[], string>(
-//   "filmsByFilter",
-//   async (genre) => {
-//     if (genre === "") {
-//       return [];
-//     }
+export const fetchTVSeriesByFilterData = createAsyncThunk<Movies[], string>(
+  "TVSeriesByFilter",
+  async (genre) => {
+    if (genre === "") {
+      return [];
+    }
 
-//     const response = await fetch(
-//       `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=50&type=tv-series&genres.name=${genre}&token=${API_KEY2}`
-//     );
+    const response = await fetch(
+      `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=50&type=tv-series&${genre}&token=${API_KEY2}`
+    );
 
-//     const data = await response.json();
+    const data = await response.json();
 
-//     return data.docs;
-//   }
-// );
+    return data.docs;
+  }
+);
+
+export const fetchCartoonsByFilterData = createAsyncThunk<Movies[], string>(
+  "CartoonsByFilter",
+  async (genre) => {
+    if (genre === "") {
+      return [];
+    }
+
+    const response = await fetch(
+      `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=50&type=cartoon&${genre}&token=${API_KEY2}`
+    );
+
+    const data = await response.json();
+
+    return data.docs;
+  }
+);

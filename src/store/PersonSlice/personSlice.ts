@@ -4,12 +4,12 @@ import { Person, Status } from "types";
 
 type PersonState = {
   status: Status;
-  data: Person | null;
+  data: Person[];
 };
 
 const initialState: PersonState = {
   status: "idle",
-  data: null,
+  data: [],
 };
 
 const personSlice = createSlice({

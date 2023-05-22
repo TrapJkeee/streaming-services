@@ -5,10 +5,12 @@
   }
   &__title {
     color: var(--primery);
+    padding-top: 20px;
   }
   &__filters {
     display: flex;
     justify-content: space-between;
+    padding-top: 20px;
     gap: 5px;
   }
   &__genre {
@@ -19,7 +21,7 @@
   }
 
   &__body {
-    padding-top: 25px;
+    padding: 25px 0;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 10px;

@@ -24,7 +24,7 @@ const GenreItem = ({ data }: GenreItemProps) => {
       <div className="genre__swiper">
         <Swiper
           slidesPerView={6}
-          spaceBetween={5}
+          spaceBetween={3}
           navigation={true}
           // breakpoints={breakpoints}
           modules={[Navigation]}

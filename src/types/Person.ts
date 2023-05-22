@@ -2,9 +2,9 @@ type ValueStr = {
   value: string;
 };
 
-type MoviesPerson = {
+export type MoviesPerson = {
   id: number;
-  name: string | null;
+  name: string;
   alternativeName: string;
   rating: number | null;
   general: boolean;
@@ -22,7 +22,7 @@ export type Person = {
   birthPlace: ValueStr[];
   deathPlace: string | null;
   movies: MoviesPerson[];
-  age: number;
+  age: number | null;
   birthday: string;
   countAwards: number | string;
   death: Date | null;

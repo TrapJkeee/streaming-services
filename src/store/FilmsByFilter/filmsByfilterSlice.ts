@@ -1,10 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchMoviesByFilterData } from "./filmsByFilterData";
-import { MoviesSlice } from "types";
+import {
+  fetchCartoonsByFilterData,
+  fetchMoviesByFilterData,
+  fetchTVSeriesByFilterData,
+} from "./filmsByFilterData";
+import { Movies, MoviesSlice, Status } from "types";
 
-const initialState: MoviesSlice = {
+type filmsByFilterSlice = {
+  status: Status;
+  moviesFilter: Movies[];
+  serialsFilter: Movies[];
+  cartoonsFilter: Movies[];
+};
+
+const initialState: filmsByFilterSlice = {
   status: "idle",
-  data: [],
+  moviesFilter: [],
+  cartoonsFilter: [],
+  serialsFilter: [],
 };
 
 const filmsByFilterSlice = createSlice({
@@ -17,9 +30,31 @@ const filmsByFilterSlice = createSlice({
     });
     builder.addCase(fetchMoviesByFilterData.fulfilled, (state, action) => {
       state.status = "finished";
-      state.data = action.payload;
+      state.moviesFilter = action.payload;
     });
     builder.addCase(fetchMoviesByFilterData.rejected, (state) => {
+      state.status = "error";
+    });
+
+    builder.addCase(fetchTVSeriesByFilterData.pending, (state) => {
+      state.status = "loading";
+    });
+    builder.addCase(fetchTVSeriesByFilterData.fulfilled, (state, action) => {
+      state.status = "finished";
+      state.serialsFilter = action.payload;
+    });
+    builder.addCase(fetchTVSeriesByFilterData.rejected, (state) => {
+      state.status = "error";
+    });
+
+    builder.addCase(fetchCartoonsByFilterData.pending, (state) => {
+      state.status = "loading";
+    });
+    builder.addCase(fetchCartoonsByFilterData.fulfilled, (state, action) => {
+      state.status = "finished";
+      state.cartoonsFilter = action.payload;
+    });
+    builder.addCase(fetchCartoonsByFilterData.rejected, (state) => {
       state.status = "error";
     });
   },

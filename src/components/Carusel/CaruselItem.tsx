@@ -28,6 +28,7 @@ const CaruselItem = ({
           src={!img ? "" : img}
           alt={name}
           className="swiper-item__preview"
+          loading="eager"
         />
         <div className="swiper-item__content">
           <div className="swiper-item__text">

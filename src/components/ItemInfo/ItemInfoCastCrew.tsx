@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Persons } from "types";
 
 interface ItemInfoCastCrewProps {
@@ -15,13 +16,18 @@ const ItemInfoCastCrew = ({ persons }: ItemInfoCastCrewProps) => {
   return (
     <div className="item-info__cast-crew">
       <span className="item-info__director">
-        Режиссёр: <span className="item-info__cast">{director[0].name}</span>
+        Режиссёр:{" "}
+        <Link to={`/person/${director[0].id}`} className="item-info__cast">
+          {director[0].name}
+        </Link>
       </span>
       <span className="item-info__director">
         <ul className="item-info__list">
           Актеры:
           {actors.map((item) => (
-            <li className="item-info__cast">{item.name}</li>
+            <Link to={`/person/${item.id}`} className="item-info__cast">
+              {item.name}
+            </Link>
           ))}
         </ul>
       </span>

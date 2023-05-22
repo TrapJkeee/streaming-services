@@ -46,7 +46,7 @@ export type Movies = {
   name: string;
   names: Names[];
   poster: {
-    previewUrl: string;
+    previewUrl: string | null;
     url: string;
   };
   rating: Rating;

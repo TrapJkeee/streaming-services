@@ -3,14 +3,9 @@ import MySelect, { SelectOptions } from "components/UI/MySelect/MySelect";
 import { OnChangeValue, SingleValue } from "react-select";
 import { fetchMoviesByFilterData } from "store/FilmsByFilter/filmsByFilterData";
 import { useAppDispatch } from "store/redux-hooks";
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 
-type Options = {
-  value: string;
-  label: string;
-};
-
-const genres: Options[] = [
+const genres: SelectOptions[] = [
   {
     value: "драма",
     label: "Драма",
@@ -68,27 +63,19 @@ const genres: Options[] = [
 const CatalogFilters = () => {
   const [currentValue, setCurrentValue] = useState("");
 
-  const dispatch = useAppDispatch();
-  const { pathname } = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  // console.log(pathname);
-
-  useEffect(() => {
-    // if (!currentValue) return;
-    if (pathname === "/films") {
-      dispatch(fetchMoviesByFilterData(currentValue));
-    }
-  }, [currentValue]);
+  const postQuery = searchParams.get("genres.name") || "";
 
   const changeHandler = (newValue: SingleValue<SelectOptions>) => {
-    console.log(newValue, "newValue");
     if (!newValue) {
       setCurrentValue("");
+      setSearchParams("");
       return;
     }
     setCurrentValue(newValue.value);
+    setSearchParams({ [`genres.name`]: newValue.value });
   };
-  console.log(currentValue);
   return (
     <div className="catalog__filters">
       <div className="catalog__genre">

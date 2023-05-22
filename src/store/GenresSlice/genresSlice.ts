@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Movies } from "types";
+import { Movies, Status } from "types";
 import {
   fetchComedyFilmsData,
   fetchDramaFilmsData,
@@ -9,7 +9,7 @@ import {
 } from "./genresData";
 
 type GenresSlice = {
-  status: "idle" | "loading" | "finished" | "error";
+  status: Status;
   newFilms: Movies[];
   newCartoons: Movies[];
   comedyFilms: Movies[];

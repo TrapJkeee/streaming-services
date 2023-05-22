@@ -4,7 +4,7 @@ import { sklonenie } from "helpers/sklonenie";
 
 interface ItemProps {
   id: number;
-  poster: string;
+  poster: string | null;
   title: string;
   year: number;
   rating: number;
@@ -24,7 +24,7 @@ const Item = ({
       <div className="item__body">
         <div className="item__poster">
           <img
-            src={poster}
+            src={poster ? poster : ""}
             alt={title}
             className="item__img"
             // loading="lazy"

@@ -19,7 +19,7 @@ const Catalog = ({ title, data, status }: CatalogProps) => {
         <div className="catalog">
           <div className="catalog__top">
             <h1 className="catalog__title">{title}</h1>
-            {/* <CatalogFilters /> */}
+            <CatalogFilters />
           </div>
           <CatalogBody data={data} status={status} />
         </div>

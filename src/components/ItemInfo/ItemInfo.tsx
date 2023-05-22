@@ -1,16 +1,16 @@
-import { Container } from "components/Contanier/Container";
-
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { selectMovies } from "store/MoviesSlice/moviesSelector";
+import { useParams } from "react-router-dom";
+import { useAppDispatch } from "store/redux-hooks";
 
 import CastSwiper from "components/CastSwiper/CastSwiper";
-import "./ItemInfo.scss";
-import { useEffect } from "react";
-import { useAppDispatch } from "store/redux-hooks";
 import { fetchCurrentFilmData } from "store/CurrentFilmSlise/currentFilmData";
-import { useParams } from "react-router-dom";
 import { selectCurrentFilm } from "store/CurrentFilmSlise/currentFilmSelector";
+import { Container } from "components/Contanier/Container";
+import { ReactComponent as Loading } from "assets/svg/loading.svg";
 import ItemMainInfo from "./ItemMainInfo";
+
+import "./ItemInfo.scss";
 
 const ItemInfo = () => {
   const dispatch = useAppDispatch();
@@ -26,7 +26,15 @@ const ItemInfo = () => {
   const { data, status } = useSelector(selectCurrentFilm);
 
   if (data.length === 0 || status === "loading") {
-    return <div className="item-info__description">Загрузка</div>;
+    return (
+      <section className="item-info">
+        <div className="item-info__loading">
+          <div className="item-info__loading-svg">
+            <Loading />
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (

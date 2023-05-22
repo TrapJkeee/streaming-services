@@ -1,7 +1,7 @@
 .cast {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: unset;
   &__body {
     color: var(--primery);
     padding: 20px 0;
@@ -16,8 +16,11 @@
     width: 160px;
     height: 250px;
     font-size: 14px;
+    transition: transform 0.3s ease-in-out;
 
     &:hover {
+      transform: scale(110%);
+      z-index: 5;
       cursor: pointer;
     }
   }
