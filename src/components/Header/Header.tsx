@@ -16,9 +16,9 @@ const Header = () => {
             <Logo />
           </Link>
           <HeaderMenu />
-          <span className="header__search">
+          {/* <span className="header__search">
             <Search />
-          </span>
+          </span> */}
         </div>
       </header>
     </Container>

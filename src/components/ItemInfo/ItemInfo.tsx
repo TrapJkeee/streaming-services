@@ -9,6 +9,7 @@ import { selectCurrentFilm } from "store/CurrentFilmSlise/currentFilmSelector";
 import { Container } from "components/Contanier/Container";
 import { ReactComponent as Loading } from "assets/svg/loading.svg";
 import ItemMainInfo from "./ItemMainInfo";
+import ItemInfoSimilarMovies from "./ItemInfoSimilarMovies";
 
 import "./ItemInfo.scss";
 
@@ -24,6 +25,8 @@ const ItemInfo = () => {
   }, [idNum]);
 
   const { data, status } = useSelector(selectCurrentFilm);
+
+  console.log(data);
 
   if (data.length === 0 || status === "loading") {
     return (
@@ -52,7 +55,9 @@ const ItemInfo = () => {
           </div>
         )}
 
-        {/* <h2 className="item-info__facts">А вы знали?</h2> */}
+        {data[0].similarMovies.length > 0 && (
+          <ItemInfoSimilarMovies similarMovies={data[0].similarMovies} />
+        )}
       </Container>
     </section>
   );

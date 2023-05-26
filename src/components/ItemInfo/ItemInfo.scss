@@ -97,6 +97,7 @@
     flex-direction: column;
     gap: 10px;
   }
+
   &__director {
     color: var(--white-opacity);
     display: flex;
@@ -113,6 +114,28 @@
       background-color: var(--white-opacity);
       transition: background-color 0.3s ease-in-out;
       cursor: pointer;
+    }
+  }
+  &__btn {
+    padding: 10px;
+    margin: 10px 10px 0 0;
+    border-radius: 5px;
+    width: 30%;
+    &-watch {
+      background-image: linear-gradient(85.23deg, #2253b2, #3b19c5);
+      &:hover {
+        transform: scale(105%);
+        box-shadow: 0px 0 10px 0 #3b19c5;
+        transition: transform 0.2s ease-in-out;
+      }
+    }
+    &-trailer {
+      background-color: rgba(255, 255, 255, 0.25);
+      &:hover {
+        transform: scale(105%);
+        transition: transform 0.2s ease-in-out;
+        box-shadow: 0px 0 10px 0 rgba(255, 255, 255, 0.25);
+      }
     }
   }
 

@@ -5,10 +5,11 @@ import { sklonenie } from "helpers/sklonenie";
 interface ItemProps {
   id: number;
   poster: string | null;
-  title: string;
-  year: number;
-  rating: number;
-  movieLength: number;
+  name?: string;
+  year?: number;
+  rating?: number;
+  movieLength?: number;
+  title?: string;
 }
 
 const Item = ({
@@ -23,19 +24,13 @@ const Item = ({
     <Link to={`/film/${id}`} className="item">
       <div className="item__body">
         <div className="item__poster">
-          <img
-            src={poster ? poster : ""}
-            alt={title}
-            className="item__img"
-            // loading="lazy"
-            // decoding="async"
-          />
+          <img src={poster ? poster : ""} alt={title} className="item__img" />
         </div>
         <div className="item__front">
           <div className="item__info">
             <div className="item__subtitle">
               <div className="item__year">{year}</div>
-              <div className="item__rating">{rating.toFixed(2)}</div>
+              <div className="item__rating">{rating?.toFixed(2)}</div>
               {time && (
                 <div className="item__time">
                   {`${time}

@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchPersonData } from "./personData";
 import { Person, Status } from "types";
 
-type PersonState = {
+type PersonSlice = {
   status: Status;
   data: Person[];
 };
 
-const initialState: PersonState = {
+const initialState: PersonSlice = {
   status: "idle",
   data: [],
 };

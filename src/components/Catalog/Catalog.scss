@@ -21,10 +21,34 @@
   }
 
   &__body {
-    padding: 25px 0;
+    padding: 25px 0 50px;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 10px;
+  }
+
+  &__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    &-svg {
+      animation: rotate-loading 2s infinite;
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+@keyframes rotate-loading {
+  from {
+    transform: rotate(0deg);
+  }
+  50% {
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
 

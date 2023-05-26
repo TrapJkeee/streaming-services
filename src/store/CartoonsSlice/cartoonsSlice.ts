@@ -5,6 +5,7 @@ import { MoviesSlice } from "types";
 const initialState: MoviesSlice = {
   status: "idle",
   data: [],
+  page: 1,
 };
 
 const cartoonsSlice = createSlice({

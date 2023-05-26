@@ -4,9 +4,10 @@ import seriesReduser from "./SeriesSlice/seriesSlice";
 import cartoonsReduser from "./CartoonsSlice/cartoonsSlice";
 import topMoviesReduser from "./TopMoviesSlice/topMoviesSlice";
 import genresReduser from "./GenresSlice/genresSlice";
-import currentFilmReduce from "./CurrentFilmSlise/currentFilsSlice";
-import filmsByFilterReduce from "./FilmsByFilter/filmsByfilterSlice";
-import personReduce from "./PersonSlice/personSlice";
+import currentFilmReducer from "./CurrentFilmSlise/currentFilsSlice";
+import filmsByFilterReducer from "./FilmsByFilter/filmsByfilterSlice";
+import personReducer from "./PersonSlice/personSlice";
+import modalReducer from "./ModalSlice/modalSlice";
 
 const rootReduser = combineReducers({
   movies: moviesReduser,
@@ -14,9 +15,10 @@ const rootReduser = combineReducers({
   cartoons: cartoonsReduser,
   topMovies: topMoviesReduser,
   genres: genresReduser,
-  currentFilm: currentFilmReduce,
-  filmsByFilter: filmsByFilterReduce,
-  person: personReduce,
+  currentFilm: currentFilmReducer,
+  filmsByFilter: filmsByFilterReducer,
+  person: personReducer,
+  modal: modalReducer,
 });
 
 export const store = configureStore({

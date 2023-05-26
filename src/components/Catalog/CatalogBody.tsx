@@ -1,10 +1,7 @@
 import Item from "components/Item/Item";
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { selectFilmsByFilter } from "store/FilmsByFilter/filmsByFilterSelector";
-import { selectMovies } from "store/MoviesSlice/moviesSelector";
 import { Movies } from "types";
 import CatalogSkeleton from "./CatalogSkeleton";
+import { ReactComponent as Loading } from "assets/svg/loading.svg";
 
 interface CatalogBodyProps {
   data: Movies[];
@@ -12,24 +9,33 @@ interface CatalogBodyProps {
 }
 
 const CatalogBody = ({ data, status }: CatalogBodyProps) => {
-  if (status === "loading") {
+  if (status === "loading" && data.length === 0) {
     return <CatalogSkeleton />;
   }
 
   return (
-    <div className="catalog__body">
-      {data.map((item) => (
-        <Item
-          key={item.id}
-          id={item.id}
-          poster={item.poster?.previewUrl}
-          movieLength={item.movieLength}
-          rating={item.rating.kp}
-          title={item.name}
-          year={item.year}
-        />
-      ))}
-    </div>
+    <>
+      <div className="catalog__body">
+        {data.map((item) => (
+          <Item
+            key={item.id}
+            id={item.id}
+            poster={item.poster?.previewUrl}
+            movieLength={item.movieLength}
+            rating={item.rating.kp}
+            title={item.name}
+            year={item.year}
+          />
+        ))}
+      </div>
+      {status === "loading" && (
+        <div className="catalog__loading">
+          <div className="catalog__loading-svg">
+            <Loading />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

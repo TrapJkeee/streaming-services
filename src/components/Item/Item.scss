@@ -50,16 +50,16 @@
     display: flex;
     gap: 5px;
   }
-  &__year {
-    &::after {
-      content: " •";
-    }
-  }
-  &__rating {
-    &::after {
-      content: " •";
-    }
-  }
+  // &__year {
+  //   &::after {
+  //     content: " •";
+  //   }
+  // }
+  // &__rating {
+  //   &::after {
+  //     content: " •";
+  //   }
+  // }
   &__time {
   }
   &__title {
