@@ -25,6 +25,16 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 10px;
+    @media screen and (max-width: 1200px) {
+      grid-template-columns: repeat(4, 1fr);
+      justify-items: stretch;
+    }
+    @media screen and (max-width: 769px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width: 577px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__loading {

@@ -8,6 +8,24 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./CastSwiper.scss";
 
+const breakpoints = {
+  577: {
+    slidesPerView: 2,
+    spaceBetween: 30,
+  },
+  769: {
+    slidesPerView: 3,
+    spaceBetween: 15,
+  },
+  1025: {
+    slidesPerView: 4,
+    spaceBetween: 3,
+  },
+  1200: {
+    slidesPerView: 7,
+    spaceBetween: 3,
+  },
+};
 interface CartProps {
   persons: Persons[];
 }
@@ -19,10 +37,8 @@ const CastSwiper = ({ persons }: CartProps) => {
         <h2 className="cast__title">Актёры и создатели</h2>
         <div className="cast__row">
           <Swiper
-            slidesPerView={9}
-            spaceBetween={30}
             navigation={true}
-            // breakpoints={breakpoints}
+            breakpoints={breakpoints}
             modules={[Navigation]}
           >
             {persons.map((item) => (

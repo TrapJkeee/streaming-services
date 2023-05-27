@@ -11,6 +11,24 @@ import { selectTopMovies } from "store/TopMoviesSlice/topMoviesSelector";
 import { useState } from "react";
 import CaruselSkeleton from "./CaruselSkeleton";
 
+const breakpoints = {
+  577: {
+    slidesPerView: 1,
+    spaceBetween: 10,
+  },
+  769: {
+    slidesPerView: 2,
+    spaceBetween: 15,
+  },
+  1025: {
+    slidesPerView: 2,
+    spaceBetween: 20,
+  },
+  1200: {
+    slidesPerView: 2,
+    spaceBetween: 30,
+  },
+};
 const Carusel = () => {
   const { data, status } = useSelector(selectTopMovies);
 
@@ -21,15 +39,10 @@ const Carusel = () => {
     <section className="carusel">
       <div className="carusel-block">
         <Swiper
-          slidesPerView={2}
-          // slidesPerGroup={1}
-          spaceBetween={50}
+          breakpoints={breakpoints}
           centeredSlides={true}
           loop={true}
           navigation={true}
-          // navigation={navigation}
-          // onSwiper={onSwiper}
-          // breakpoints={breakpoints}
           modules={[Navigation]}
         >
           {data.map((item) => (

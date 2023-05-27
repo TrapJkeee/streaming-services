@@ -19,13 +19,12 @@ html,
 body {
   margin: 0;
   height: 100%;
-  // font-family: "Roboto Slab", serif;
-
   font-family: "Noto Sans", sans-serif;
   line-height: 150%;
   font-size: 16px;
   line-height: 24px;
   background-color: var(--black);
+  overflow-x: hidden;
 }
 
 a,

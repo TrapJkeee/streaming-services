@@ -8,7 +8,11 @@
     flex-direction: column;
     padding-top: 20px;
     padding-bottom: 70px;
+    @media screen and (max-width: 577px) {
+      padding-bottom: 35px;
+    }
   }
+
   &__type {
     max-width: 300px;
     color: var(--primery);

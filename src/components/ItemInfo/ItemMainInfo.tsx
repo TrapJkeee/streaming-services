@@ -99,7 +99,12 @@ const ItemMainInfo = ({ currentFilm }: ItemMainInfoProps) => {
             )}
             {isModalOpen && (
               <Modal>
-                <ReactPlayer controls url={trailers} />
+                <ReactPlayer
+                  controls
+                  url={trailers}
+                  width={"100%"}
+                  height={"100%"}
+                />
               </Modal>
             )}
           </div>

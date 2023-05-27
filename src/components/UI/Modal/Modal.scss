@@ -18,6 +18,16 @@
   z-index: 200;
 
   &__body {
+    width: 800px;
+    height: 480px;
+    @media screen and (max-width: 1200px) {
+      width: 640px;
+      height: 360px;
+    }
+    @media screen and (max-width: 577px) {
+      width: 450px;
+      height: 300px;
+    }
   }
   &__close {
     position: fixed;

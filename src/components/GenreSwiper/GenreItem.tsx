@@ -8,6 +8,29 @@ import { Movies, SimilarMovies } from "types";
 import { selectGenres } from "store/GenresSlice/genresSelector";
 import GenreSkeleton from "./GenreSkeleton";
 
+const breakpoints = {
+  577: {
+    slidesPerView: 2,
+    spaceBetween: 30,
+  },
+  769: {
+    slidesPerView: 3,
+    spaceBetween: 15,
+  },
+  1025: {
+    slidesPerView: 4,
+    spaceBetween: 3,
+  },
+  1200: {
+    slidesPerView: 4,
+    spaceBetween: 3,
+  },
+  1880: {
+    slidesPerView: 6,
+    spaceBetween: 3,
+  },
+};
+
 interface GenreItemProps {
   data: Movies[] | [];
   similarMovies?: SimilarMovies[];
@@ -24,10 +47,8 @@ const GenreItem = ({ data, similarMovies }: GenreItemProps) => {
     return (
       <div className="genre__swiper">
         <Swiper
-          slidesPerView={6}
-          spaceBetween={3}
           navigation={true}
-          // breakpoints={breakpoints}
+          breakpoints={breakpoints}
           modules={[Navigation]}
         >
           {similarMovies.map((item) => (
@@ -47,10 +68,8 @@ const GenreItem = ({ data, similarMovies }: GenreItemProps) => {
   return (
     <div className="genre__swiper">
       <Swiper
-        slidesPerView={6}
-        spaceBetween={3}
         navigation={true}
-        // breakpoints={breakpoints}
+        breakpoints={breakpoints}
         modules={[Navigation]}
       >
         {data.map((item) => (

@@ -1,0 +1,35 @@
+[33mcommit 36bff12ed2f62328631dedfef96db8b578e8c041[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Sergei Shatohin <trapjkeeee@gmail.com>
+Date:   Fri May 26 23:27:06 2023 +0300
+
+    сделал модалку и добавил трейлер
+
+[33mcommit f7150a187152c2ed5f51b6d4920b1f86629c95ca[m
+Author: Sergei Shatohin <trapjkeeee@gmail.com>
+Date:   Mon May 22 23:56:52 2023 +0300
+
+    доделал страницу персоны. Сделал фильтрацию на странице категорий
+
+[33mcommit b95aa6145a7b305f67f033a627a839c63bb82c8a[m
+Author: Sergei Shatohin <trapjkeeee@gmail.com>
+Date:   Fri May 19 21:46:16 2023 +0300
+
+    сделал скелотоны, начал работу со страницей персоны
+
+[33mcommit 3e3b28f36522291a8b3fc1f52a5aa4356b214d5f[m
+Author: Sergei Shatohin <trapjkeeee@gmail.com>
+Date:   Wed May 17 22:47:29 2023 +0300
+
+    начал делать фильтрацию
+
+[33mcommit 7d5cb5601d0e49ad211a63975edfa9f3b7e91622[m
+Author: Sergei Shatohin <trapjkeeee@gmail.com>
+Date:   Sat May 13 22:52:29 2023 +0300
+
+    сделал страницу с информацией по фильму
+
+[33mcommit 72e5fd1427d7de959930c81214236eabc7ccf934[m
+Author: Sergei Shatohin <trapjkeeee@gmail.com>
+Date:   Wed May 3 14:06:13 2023 +0300
+
+    Initialize project using Create React App
