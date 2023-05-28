@@ -28,12 +28,30 @@
       width: 450px;
       height: 300px;
     }
+    @media screen and (max-width: 425px) {
+      width: 300px;
+      height: 180px;
+    }
+    @media screen and (max-width: 320px) {
+      width: 250px;
+      height: 200px;
+    }
   }
   &__close {
     position: fixed;
     top: -10%;
     right: -5%;
-    border-radius: 5px;
     cursor: pointer;
+    @media screen and (max-width: 577px) {
+      top: -15%;
+      right: -10%;
+    }
+    @media screen and (max-width: 375px) {
+      right: -7%;
+    }
+    @media screen and (max-width: 320px) {
+      top: -20%;
+      right: -7%;
+    }
   }
 }

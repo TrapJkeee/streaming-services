@@ -39,7 +39,7 @@ const breakpoints = {
 const GenreSkeleton = () => {
   return (
     <div className="genre__swiper">
-      <Swiper breakpoints={breakpoints}>
+      <Swiper navigation={true}>
         <SwiperSlide>
           <div className="skeleton"></div>
         </SwiperSlide>
