@@ -1,8 +1,7 @@
-import { Genres } from "types";
-import { useSelector } from "react-redux";
-import { selectTopMovies } from "store/TopMoviesSlice/topMoviesSelector";
-import "./CaruselItem.scss";
 import { Link } from "react-router-dom";
+import { Genres } from "types";
+
+import "./CaruselItem.scss";
 
 interface CaruselItemProps {
   img: string | null;

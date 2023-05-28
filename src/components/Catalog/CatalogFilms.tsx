@@ -29,8 +29,6 @@ const CatalogFilms = () => {
     dispatch(fetchMoviesByFilterData(valueSearch));
   }, [search]);
 
-  console.log(moviesFilter.length, "moviesFilter.length");
-
   if (moviesFilter.length > 0) {
     return <Catalog title="Фильмы" data={moviesFilter} />;
   }

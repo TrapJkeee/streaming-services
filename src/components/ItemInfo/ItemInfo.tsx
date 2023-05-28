@@ -26,8 +26,6 @@ const ItemInfo = () => {
 
   const { data, status } = useSelector(selectCurrentFilm);
 
-  console.log(data);
-
   if (data.length === 0 || status === "loading") {
     return (
       <section className="item-info">

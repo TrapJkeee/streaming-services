@@ -13,8 +13,6 @@ export const fetchAllMoviesData = createAsyncThunk<Movies[]>(
 
     const data = await response.json();
 
-    console.log(data);
-
     return data.docs;
   }
 );

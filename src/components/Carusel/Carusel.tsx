@@ -1,15 +1,15 @@
+import { Navigation } from "swiper";
+import CaruselItem from "./CaruselItem";
+import { useSelector } from "react-redux";
+import { selectTopMovies } from "store/TopMoviesSlice/topMoviesSelector";
+import CaruselSkeleton from "./CaruselSkeleton";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/controller";
 import "swiper/css/navigation";
 
 import "./Carusel.scss";
-import { Navigation } from "swiper";
-import CaruselItem from "./CaruselItem";
-import { useSelector } from "react-redux";
-import { selectTopMovies } from "store/TopMoviesSlice/topMoviesSelector";
-import { useState } from "react";
-import CaruselSkeleton from "./CaruselSkeleton";
 
 const breakpoints = {
   577: {

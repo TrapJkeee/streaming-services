@@ -9,7 +9,6 @@ interface ItemInfoSimilarMoviesProps {
 const ItemInfoSimilarMovies = ({
   similarMovies,
 }: ItemInfoSimilarMoviesProps) => {
-  console.log(similarMovies);
   return (
     <div>
       <GenreSwiper

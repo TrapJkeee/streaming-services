@@ -21,7 +21,6 @@ const Person = () => {
 
   const { data, status } = useSelector(selectPerson);
 
-  console.log(data);
   if (status === "loading" || data.length === 0) {
     return <div>asd</div>;
   }
