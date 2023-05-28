@@ -19,7 +19,7 @@ const breakpoints = {
     spaceBetween: 3,
   },
   1880: {
-    slidesPerView: 6,
+    slidesPerView: 5,
     spaceBetween: 3,
   },
 };
@@ -27,11 +27,7 @@ const breakpoints = {
 const GenreSkeleton = () => {
   return (
     <div className="genre__swiper">
-      <Swiper
-        breakpoints={breakpoints}
-        navigation={true}
-        modules={[Navigation]}
-      >
+      <Swiper breakpoints={breakpoints}>
         <SwiperSlide>
           <div className="skeleton"></div>
         </SwiperSlide>

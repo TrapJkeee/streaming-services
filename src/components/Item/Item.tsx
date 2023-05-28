@@ -24,7 +24,12 @@ const Item = ({
     <Link to={`/film/${id}`} className="item">
       <div className="item__body">
         <div className="item__poster">
-          <img src={poster ? poster : ""} alt={title} className="item__img" />
+          <img
+            src={poster ? poster : ""}
+            alt={title}
+            className="item__img"
+            decoding="sync"
+          />
         </div>
         <div className="item__front">
           <div className="item__info">
