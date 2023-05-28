@@ -12,6 +12,15 @@
     &:hover {
       cursor: pointer;
     }
+    @media screen and (max-width: 320px) {
+      max-width: 50px;
+    }
+    &-title {
+      @media screen and (max-width: 320px) {
+        max-width: 100px;
+        display: none;
+      }
+    }
   }
 
   &__menu {
@@ -23,6 +32,10 @@
       @media screen and (max-width: 577px) {
         gap: 50px;
         justify-content: center;
+      }
+      @media screen and (max-width: 425px) {
+        justify-content: start;
+        gap: 20px;
       }
     }
     &-item {

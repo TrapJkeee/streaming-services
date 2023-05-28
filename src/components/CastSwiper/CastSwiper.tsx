@@ -9,16 +9,28 @@ import "swiper/css/navigation";
 import "./CastSwiper.scss";
 
 const breakpoints = {
+  320: {
+    slidesPerView: 1,
+    spaceBetween: 30,
+  },
+  375: {
+    slidesPerView: 2,
+    spaceBetween: 30,
+  },
+  425: {
+    slidesPerView: 2,
+    spaceBetween: 30,
+  },
   577: {
     slidesPerView: 2,
     spaceBetween: 30,
   },
   769: {
-    slidesPerView: 3,
+    slidesPerView: 4,
     spaceBetween: 15,
   },
-  1025: {
-    slidesPerView: 4,
+  1024: {
+    slidesPerView: 5,
     spaceBetween: 3,
   },
   1200: {

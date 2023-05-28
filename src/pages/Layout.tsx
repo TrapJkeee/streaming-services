@@ -1,14 +1,16 @@
 import Header from "components/Header/Header";
 import { Outlet } from "react-router-dom";
-import { memo } from "react";
+import { Suspense } from "react";
 
 const Layout = () => {
   return (
     <>
       <Header />
+      {/* <Suspense> */}
       <Outlet />
+      {/* </Suspense> */}
     </>
   );
 };
 
-export default memo(Layout);
+export default Layout;

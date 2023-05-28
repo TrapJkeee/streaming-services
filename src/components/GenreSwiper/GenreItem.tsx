@@ -9,20 +9,32 @@ import { selectGenres } from "store/GenresSlice/genresSelector";
 import GenreSkeleton from "./GenreSkeleton";
 
 const breakpoints = {
-  577: {
+  320: {
+    slidesPerView: 2,
+    spaceBetween: 5,
+  },
+  375: {
+    slidesPerView: 2,
+    spaceBetween: 5,
+  },
+  425: {
     slidesPerView: 2,
     spaceBetween: 30,
   },
   769: {
     slidesPerView: 3,
-    spaceBetween: 15,
+    spaceBetween: 3,
   },
-  1025: {
+  1024: {
     slidesPerView: 4,
     spaceBetween: 3,
   },
   1200: {
     slidesPerView: 4,
+    spaceBetween: 3,
+  },
+  1440: {
+    slidesPerView: 5,
     spaceBetween: 3,
   },
   1880: {
