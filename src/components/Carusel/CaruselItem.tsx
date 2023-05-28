@@ -24,11 +24,7 @@ const CaruselItem = ({
   return (
     <div className="swiper-item">
       <Link to={`/film/${id}`}>
-        <img
-          src={!img ? "" : img}
-          alt={name}
-          className="swiper-item__preview"
-        />
+        <img src={img ? img : ""} alt={name} className="swiper-item__preview" />
         <div className="swiper-item__content">
           <div className="swiper-item__text">
             <div className="swiper-item__title">{name}</div>

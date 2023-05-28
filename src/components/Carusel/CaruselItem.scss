@@ -2,7 +2,7 @@
   overflow: visible;
   &-item {
     position: relative;
-    width: auto;
+    max-width: 1070px;
     height: 610px;
     border-radius: 15px;
     margin: 0 auto;

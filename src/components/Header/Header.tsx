@@ -6,7 +6,7 @@ import { ReactComponent as Search } from "assets/svg/search.svg";
 import "./Header.scss";
 import HeaderMenu from "./HeaderMenu";
 import { Link } from "react-router-dom";
-
+import { memo } from "react";
 const Header = () => {
   return (
     <Container>
@@ -25,4 +25,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

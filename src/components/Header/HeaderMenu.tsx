@@ -3,6 +3,7 @@ import { ReactComponent as Movie } from "assets/svg/movie.svg";
 import { ReactComponent as Serials } from "assets/svg/serials.svg";
 import { ReactComponent as Cartoons } from "assets/svg/cartoons.svg";
 import { NavLink } from "react-router-dom";
+import { memo } from "react";
 
 const HeaderMenu = () => {
   return (
@@ -37,4 +38,4 @@ const HeaderMenu = () => {
   );
 };
 
-export default HeaderMenu;
+export default memo(HeaderMenu);

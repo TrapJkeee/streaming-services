@@ -24,10 +24,13 @@
     padding: 25px 0 50px;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-gap: 10px;
+    grid-gap: 5px;
+    @media screen and (max-width: 1440px) {
+      grid-template-columns: repeat(5, 1fr);
+      justify-items: stretch;
+    }
     @media screen and (max-width: 1200px) {
       grid-template-columns: repeat(4, 1fr);
-      justify-items: stretch;
     }
     @media screen and (max-width: 769px) {
       grid-template-columns: repeat(3, 1fr);

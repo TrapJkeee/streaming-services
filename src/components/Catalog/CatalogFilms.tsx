@@ -22,39 +22,17 @@ const CatalogFilms = () => {
 
   useEffect(() => {
     if (!search) {
-      // if (fetching) {
       dispatch(fetchAllMoviesData());
-      // dispatch(moviesAction.addPage());
-      // }
     }
     const valueSearch = search.slice(1);
 
     dispatch(fetchMoviesByFilterData(valueSearch));
-    // setFetching(false);
   }, [search]);
-
-  // const scrollHandler = (e: any) => {
-  //   if (
-  //     e.target.documentElement.scrollHeight -
-  //       (e.target.documentElement.scrollTop + window.innerHeight) <
-  //     500
-  //   ) {
-  //     setFetching(true);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   document.addEventListener("scroll", scrollHandler);
-
-  //   return () => {
-  //     document.removeEventListener("scroll", scrollHandler);
-  //   };
-  // }, []);
 
   console.log(moviesFilter.length, "moviesFilter.length");
 
   if (moviesFilter.length > 0) {
-    return <Catalog title="Фильмы" data={moviesFilter} status={filterStatus} />;
+    return <Catalog title="Фильмы" data={moviesFilter} />;
   }
   return <Catalog title="Фильмы" data={data} status={status} />;
 };

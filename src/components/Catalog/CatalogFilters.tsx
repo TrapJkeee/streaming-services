@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import MySelect, { SelectOptions } from "components/UI/MySelect/MySelect";
-import { OnChangeValue, SingleValue } from "react-select";
-import { fetchMoviesByFilterData } from "store/FilmsByFilter/filmsByFilterData";
-import { useAppDispatch } from "store/redux-hooks";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { SingleValue } from "react-select";
+
+import { useSearchParams } from "react-router-dom";
 
 const genres: SelectOptions[] = [
   {

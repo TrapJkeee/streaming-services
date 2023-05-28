@@ -14,15 +14,8 @@
   }
 
   &__poster {
-    width: 235px;
     height: 350px;
     border-radius: 15px;
-    // @media screen and (max-width: 769px) {
-    //   height: 400px;
-    // }
-    // @media screen and (max-width: 577px) {
-    //   height: 550px;
-    // }
     &:hover ~ .item__front {
       opacity: 1;
     }
@@ -55,18 +48,7 @@
     display: flex;
     gap: 5px;
   }
-  // &__year {
-  //   &::after {
-  //     content: " •";
-  //   }
-  // }
-  // &__rating {
-  //   &::after {
-  //     content: " •";
-  //   }
-  // }
-  &__time {
-  }
+
   &__title {
     font-weight: 600;
     font-size: 20px;

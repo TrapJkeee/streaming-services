@@ -1,6 +1,5 @@
 .genre {
   position: relative;
-  width: 100%;
   overflow: hidden;
 
   &__body {
@@ -31,7 +30,4 @@
   &:hover {
     color: var(--white);
   }
-}
-
-.skeleton-swiper {
 }

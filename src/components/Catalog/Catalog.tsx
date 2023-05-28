@@ -1,15 +1,13 @@
 import { Container } from "components/Contanier/Container";
-
-import "./Catalog.scss";
-
 import CatalogFilters from "./CatalogFilters";
 import CatalogBody from "./CatalogBody";
 import { Movies } from "types";
 
+import "./Catalog.scss";
 export interface CatalogProps {
   data: Movies[];
   title: string;
-  status: string;
+  status?: string;
 }
 
 const Catalog = ({ title, data, status }: CatalogProps) => {

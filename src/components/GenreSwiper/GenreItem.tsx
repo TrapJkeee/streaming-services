@@ -32,7 +32,7 @@ const breakpoints = {
 };
 
 interface GenreItemProps {
-  data: Movies[] | [];
+  data: Movies[];
   similarMovies?: SimilarMovies[];
 }
 
@@ -56,7 +56,7 @@ const GenreItem = ({ data, similarMovies }: GenreItemProps) => {
               <Item
                 key={item.id}
                 id={item.id}
-                poster={item.poster.previewUrl}
+                poster={item.poster?.previewUrl}
                 title={item.name}
               />
             </SwiperSlide>
@@ -77,7 +77,7 @@ const GenreItem = ({ data, similarMovies }: GenreItemProps) => {
             <Item
               key={item.id}
               id={item.id}
-              poster={item.poster.previewUrl}
+              poster={item.poster?.previewUrl}
               movieLength={item.movieLength}
               rating={item.rating.kp}
               title={item.name}
