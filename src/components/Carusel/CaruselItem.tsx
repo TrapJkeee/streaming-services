@@ -28,7 +28,7 @@ const CaruselItem = ({
           alt={name}
           className="swiper-item__preview"
           decoding="async"
-          loading="lazy"
+          // loading="lazy"
         />
         <div className="swiper-item__content">
           <div className="swiper-item__text">
