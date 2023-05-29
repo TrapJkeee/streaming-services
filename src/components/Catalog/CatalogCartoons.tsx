@@ -29,7 +29,13 @@ const CatalogCartoons = () => {
   }, [search]);
 
   if (cartoonsFilter.length > 0) {
-    return <Catalog title="asd" data={cartoonsFilter} status={filterStatus} />;
+    return (
+      <Catalog
+        title="Мультфильмы"
+        data={cartoonsFilter}
+        status={filterStatus}
+      />
+    );
   }
   return <Catalog title="Мультфильмы" data={data} status={status} />;
 };
