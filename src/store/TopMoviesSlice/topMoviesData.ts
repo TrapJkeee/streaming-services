@@ -10,7 +10,6 @@ export const fetchTopMoviesData = createAsyncThunk<TopMovies[]>(
       `https://api.kinopoisk.dev/v1.3/movie?selectFields=backdrop&selectFields=id&selectFields=poster&selectFields=genres&selectFields=name&selectFields=rating&selectFields=year&selectFields=videos&page=1&limit=10&top10=%21null&selectFields=videos&token=${API_KEY2}`
     );
     const data = await response.json();
-
     return data.docs;
   }
 );
