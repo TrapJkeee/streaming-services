@@ -4,7 +4,7 @@ import { API_KEY2 } from "constants/api";
 
 export const fetchAllCartoonsData = createAsyncThunk("cartoon", async () => {
   const response = await fetch(
-    `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=100&type=cartoon&token=${API_KEY2}`
+    `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=50&type=cartoon&token=${API_KEY2}`
   );
 
   const data = await response.json();

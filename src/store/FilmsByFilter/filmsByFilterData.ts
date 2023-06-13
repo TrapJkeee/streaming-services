@@ -11,7 +11,7 @@ export const fetchMoviesByFilterData = createAsyncThunk<Movies[], string>(
     }
 
     const response = await fetch(
-      `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=100&type=movie&${genre}&token=${API_KEY2}`
+      `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=50&type=movie&${genre}&token=${API_KEY2}`
     );
 
     const data = await response.json();
@@ -28,7 +28,7 @@ export const fetchTVSeriesByFilterData = createAsyncThunk<Movies[], string>(
     }
 
     const response = await fetch(
-      `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=100&type=tv-series&${genre}&token=${API_KEY2}`
+      `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=50&type=tv-series&${genre}&token=${API_KEY2}`
     );
 
     const data = await response.json();
@@ -45,7 +45,7 @@ export const fetchCartoonsByFilterData = createAsyncThunk<Movies[], string>(
     }
 
     const response = await fetch(
-      `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=100&type=cartoon&${genre}&token=${API_KEY2}`
+      `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=50&type=cartoon&${genre}&token=${API_KEY2}`
     );
 
     const data = await response.json();
