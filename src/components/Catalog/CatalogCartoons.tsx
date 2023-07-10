@@ -9,35 +9,41 @@ import { useLocation } from "react-router-dom";
 
 import Catalog from "./Catalog";
 import { fetchAllCartoonsData } from "store/CartoonsSlice/cartoonsData";
+import { useGetCartoonsByFilterQuery, useGetCartoonsQuery } from "store/api";
 
 const CatalogCartoons = () => {
   const dispatch = useAppDispatch();
   const { search } = useLocation();
+  const valueSearch = search.slice(1);
 
-  const { data, status } = useSelector(selectCartoons);
-  const { cartoonsFilter, status: filterStatus } =
-    useSelector(selectFilmsByFilter);
+  // const { data, status } = useSelector(selectCartoons);
+  // const { cartoonsFilter, status: filterStatus } =
+  //   useSelector(selectFilmsByFilter);
 
-  useEffect(() => {
-    if (!search) {
-      dispatch(fetchAllCartoonsData());
-    }
+  const { data, isLoading } = useGetCartoonsQuery();
+  const { data: cartoonsFilter, status } =
+    useGetCartoonsByFilterQuery(valueSearch);
 
-    const valueSearch = search.slice(1);
+  const filterLoading = status === "pending" ? true : false;
 
-    dispatch(fetchCartoonsByFilterData(valueSearch));
-  }, [search]);
+  // useEffect(() => {
+  //   if (!search) {
+  //     dispatch(fetchAllCartoonsData());
+  //   }
 
-  if (cartoonsFilter.length > 0) {
+  //   dispatch(fetchCartoonsByFilterData(valueSearch));
+  // }, [search]);
+
+  if (cartoonsFilter) {
     return (
       <Catalog
         title="Мультфильмы"
-        data={cartoonsFilter}
-        status={filterStatus}
+        data={cartoonsFilter?.docs}
+        status={filterLoading}
       />
     );
   }
-  return <Catalog title="Мультфильмы" data={data} status={status} />;
+  return <Catalog title="Мультфильмы" data={data?.docs} status={isLoading} />;
 };
 
 export default CatalogCartoons;

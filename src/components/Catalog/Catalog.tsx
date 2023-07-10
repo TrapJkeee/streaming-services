@@ -5,9 +5,9 @@ import { Movies } from "types";
 
 import "./Catalog.scss";
 export interface CatalogProps {
-  data: Movies[];
+  data: Movies[] | undefined;
   title: string;
-  status?: string;
+  status?: boolean;
 }
 
 const Catalog = ({ title, data, status }: CatalogProps) => {

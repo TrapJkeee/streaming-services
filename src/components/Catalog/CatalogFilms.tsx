@@ -9,27 +9,39 @@ import { fetchMoviesByFilterData } from "store/FilmsByFilter/filmsByFilterData";
 import { selectFilmsByFilter } from "store/FilmsByFilter/filmsByFilterSelector";
 
 import Catalog from "./Catalog";
+import { useGetMoviesByFilterQuery, useGetMoviesQuery } from "store/api";
 
 const CatalogFilms = () => {
   const dispatch = useAppDispatch();
   const { search } = useLocation();
-  const { data, status } = useSelector(selectMovies);
-  const { moviesFilter, status: filterStatus } =
-    useSelector(selectFilmsByFilter);
+  const valueSearch = search.slice(1);
 
-  useEffect(() => {
-    if (!search) {
-      dispatch(fetchAllMoviesData());
-    }
-    const valueSearch = search.slice(1);
+  const { data, isLoading } = useGetMoviesQuery();
+  const { data: filterMovies, status } = useGetMoviesByFilterQuery(valueSearch);
 
-    dispatch(fetchMoviesByFilterData(valueSearch));
-  }, [search]);
+  const filterLoading = status === "pending" ? true : false;
+  // const { data, status } = useSelector(selectMovies);
+  // const { moviesFilter, status: filterStatus } =
+  //   useSelector(selectFilmsByFilter);
+  // useEffect(() => {
+  //   if (!search) {
+  //     dispatch(fetchAllMoviesData());
+  //   }
+  //   const valueSearch = search.slice(1);
 
-  if (moviesFilter.length > 0) {
-    return <Catalog title="Фильмы" data={moviesFilter} />;
+  //   dispatch(fetchMoviesByFilterData(valueSearch));
+  // }, [search]);
+
+  if (filterMovies) {
+    return (
+      <Catalog
+        title="Фильмы"
+        data={filterMovies?.docs}
+        status={filterLoading}
+      />
+    );
   }
-  return <Catalog title="Фильмы" data={data} status={status} />;
+  return <Catalog title="Фильмы" data={data?.docs} status={isLoading} />;
 };
 
 export default CatalogFilms;

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchAllMoviesData } from "./moviesData";
-import { MoviesSlice } from "types";
+import { Movies, MoviesSlice } from "types";
 
 const initialState: MoviesSlice = {
   status: "idle",

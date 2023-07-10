@@ -32,13 +32,13 @@ function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchTopMoviesData());
-    dispatch(fetchAllCartoonsData());
-    dispatch(fetchComedyFilmsData());
-    dispatch(fetchDramaFilmsData());
-    dispatch(fetchNewCartoonsData());
-    dispatch(fetchNewFilmsData());
-    dispatch(fetchThrillerFilmsData());
+    // dispatch(fetchTopMoviesData());
+    // dispatch(fetchAllCartoonsData());
+    // dispatch(fetchComedyFilmsData());
+    // dispatch(fetchDramaFilmsData());
+    // dispatch(fetchNewCartoonsData());
+    // dispatch(fetchNewFilmsData());
+    // dispatch(fetchThrillerFilmsData());
   }, []);
 
   return (

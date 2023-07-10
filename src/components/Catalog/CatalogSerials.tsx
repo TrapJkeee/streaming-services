@@ -8,29 +8,40 @@ import { fetchAllSeriesData } from "store/SeriesSlice/seriesData";
 import { fetchTVSeriesByFilterData } from "store/FilmsByFilter/filmsByFilterData";
 import { selectFilmsByFilter } from "store/FilmsByFilter/filmsByFilterSelector";
 import Catalog from "./Catalog";
+import { useGetSerialsByFilterQuery, useGetSeriesQuery } from "store/api";
 
 const CatalogSerials = () => {
   const dispatch = useAppDispatch();
-  const { data, status, page } = useSelector(selectSeries);
+  // const { data, status, page } = useSelector(selectSeries);
   const { search } = useLocation();
-  const { serialsFilter, status: filterStatus } =
-    useSelector(selectFilmsByFilter);
+  const valueSearch = search.slice(1);
+  // const { serialsFilter, status: filterStatus } =
+  //   useSelector(selectFilmsByFilter);
 
-  useEffect(() => {
-    if (!search) {
-      dispatch(fetchAllSeriesData());
-    }
+  const { data, isLoading } = useGetSeriesQuery();
+  const { data: filterSerials, status } =
+    useGetSerialsByFilterQuery(valueSearch);
 
-    const valueSearch = search.slice(1);
-    dispatch(fetchTVSeriesByFilterData(valueSearch));
-  }, [search]);
+  const filterLoading = status === "pending" ? true : false;
 
-  if (serialsFilter.length > 0) {
+  // useEffect(() => {
+  //   if (!search) {
+  //     dispatch(fetchAllSeriesData());
+  //   }
+
+  //   dispatch(fetchTVSeriesByFilterData(valueSearch));
+  // }, [search]);
+
+  if (filterSerials) {
     return (
-      <Catalog title="Сериалы" data={serialsFilter} status={filterStatus} />
+      <Catalog
+        title="Сериалы"
+        data={filterSerials?.docs}
+        status={filterLoading}
+      />
     );
   }
-  return <Catalog title="Сериалы" data={data} status={status} />;
+  return <Catalog title="Сериалы" data={data?.docs} status={isLoading} />;
 };
 
 export default CatalogSerials;

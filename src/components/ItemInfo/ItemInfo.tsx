@@ -12,6 +12,7 @@ import ItemMainInfo from "./ItemMainInfo";
 import ItemInfoSimilarMovies from "./ItemInfoSimilarMovies";
 
 import "./ItemInfo.scss";
+import { useGetCurrentFilmQuery } from "store/api";
 
 const ItemInfo = () => {
   const dispatch = useAppDispatch();
@@ -20,13 +21,15 @@ const ItemInfo = () => {
   const { id } = useParams();
   idNum = Number(id);
 
-  useEffect(() => {
-    dispatch(fetchCurrentFilmData(idNum));
-  }, [idNum]);
+  const { data, isLoading } = useGetCurrentFilmQuery(idNum);
 
-  const { data, status } = useSelector(selectCurrentFilm);
+  // useEffect(() => {
+  //   dispatch(fetchCurrentFilmData(idNum));
+  // }, [idNum]);
 
-  if (data.length === 0 || status === "loading") {
+  // const { data, status } = useSelector(selectCurrentFilm);
+
+  if (isLoading || !data) {
     return (
       <section className="item-info">
         <div className="item-info__loading">
@@ -41,20 +44,20 @@ const ItemInfo = () => {
   return (
     <section className="item-info">
       <div className="item-info__background">
-        <ItemMainInfo currentFilm={data[0]} />
+        <ItemMainInfo currentFilm={data} />
       </div>
       <Container>
-        {data[0].description && (
-          <div className="item-info__description">{data[0].description}</div>
+        {data?.description && (
+          <div className="item-info__description">{data?.description}</div>
         )}
-        {data[0].persons && (
+        {data?.persons && (
           <div className="item-info__cast-info">
-            <CastSwiper persons={data[0].persons} />
+            <CastSwiper persons={data?.persons} />
           </div>
         )}
 
-        {data[0].similarMovies.length > 0 && (
-          <ItemInfoSimilarMovies similarMovies={data[0].similarMovies} />
+        {data && data.similarMovies.length > 0 && (
+          <ItemInfoSimilarMovies similarMovies={data?.similarMovies} />
         )}
       </Container>
     </section>

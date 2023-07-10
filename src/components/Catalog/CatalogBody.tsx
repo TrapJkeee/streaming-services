@@ -5,19 +5,19 @@ import { selectFilmsByFilter } from "store/FilmsByFilter/filmsByFilterSelector";
 import { Movies } from "types";
 
 interface CatalogBodyProps {
-  data: Movies[];
-  status?: string;
+  data: Movies[] | undefined;
+  status?: boolean;
 }
 
 const CatalogBody = ({ data, status }: CatalogBodyProps) => {
   const { status: filterStatus } = useSelector(selectFilmsByFilter);
 
-  if (status === "loading" || filterStatus === "loading") {
+  if (status) {
     return <CatalogSkeleton />;
   }
   return (
     <div className="catalog__body">
-      {data.map((item) => (
+      {data?.map((item) => (
         <Item
           key={item.id}
           id={item.id}

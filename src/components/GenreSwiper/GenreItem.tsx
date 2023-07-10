@@ -1,5 +1,4 @@
 import Item from "components/Item/Item";
-import { memo } from "react";
 import { useSelector } from "react-redux";
 import { selectMovies } from "store/MoviesSlice/moviesSelector";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,6 +6,13 @@ import { Navigation } from "swiper";
 import { Movies, SimilarMovies } from "types";
 import { selectGenres } from "store/GenresSlice/genresSelector";
 import GenreSkeleton from "./GenreSkeleton";
+import {
+  useGetComedyFilmsQuery,
+  useGetDramaFilmsQuery,
+  useGetNewCartoonsQuery,
+  useGetNewMoviesQuery,
+  useGetThrillerFilmsQuery,
+} from "store/api";
 
 const breakpoints = {
   320: {
@@ -49,9 +55,21 @@ interface GenreItemProps {
 }
 
 const GenreItem = ({ data, similarMovies }: GenreItemProps) => {
-  const { status } = useSelector(selectGenres);
+  // const { status } = useSelector(selectGenres);
 
-  if (status === "loading") {
+  const { isLoading: moviesLoading } = useGetNewMoviesQuery();
+  const { isLoading: cartoonsLoading } = useGetNewCartoonsQuery();
+  const { isLoading: comedyLoading } = useGetComedyFilmsQuery();
+  const { isLoading: thrillerLoading } = useGetThrillerFilmsQuery();
+  const { isLoading: dramaLoading } = useGetDramaFilmsQuery();
+
+  if (
+    moviesLoading ||
+    cartoonsLoading ||
+    comedyLoading ||
+    thrillerLoading ||
+    dramaLoading
+  ) {
     return <GenreSkeleton />;
   }
 
@@ -102,4 +120,4 @@ const GenreItem = ({ data, similarMovies }: GenreItemProps) => {
   );
 };
 
-export default memo(GenreItem);
+export default GenreItem;

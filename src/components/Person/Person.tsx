@@ -9,28 +9,32 @@ import { useAppDispatch } from "store/redux-hooks";
 import "./Person.scss";
 import PersonInfo from "./PersonInfo";
 import PersonMovies from "./PersonMovies";
+import { useGetPersonDataQuery } from "store/api";
 
 const Person = () => {
   const { id } = useParams();
   const idNum = Number(id);
 
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(fetchPersonData(idNum));
-  }, []);
+  // const dispatch = useAppDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchPersonData(idNum));
+  // }, []);
 
-  const { data, status } = useSelector(selectPerson);
+  const { data, isLoading } = useGetPersonDataQuery(idNum);
 
-  if (status === "loading" || data.length === 0) {
+  console.log(data);
+  // const { data, status } = useSelector(selectPerson);
+
+  if (isLoading || !data) {
     return <div>asd</div>;
   }
   return (
     <section>
       <Container>
         <div className="person">
-          <PersonInfo data={data[0]} />
+          <PersonInfo data={data} />
         </div>
-        <PersonMovies data={data[0]} />
+        <PersonMovies data={data} />
       </Container>
     </section>
   );

@@ -1,5 +1,4 @@
 import GenreItem from "./GenreItem";
-import { memo } from "react";
 import { Container } from "components/Contanier/Container";
 
 import "swiper/css";
@@ -9,7 +8,7 @@ import { CurrentFilm, Movies, SimilarMovies } from "types";
 
 export interface GenreSwiperProps {
   title: string;
-  data: Movies[] | [];
+  data: Movies[] | [] | undefined;
   similarMovies?: SimilarMovies[];
 }
 
@@ -29,4 +28,4 @@ const GenreSwiper = ({ title, data, similarMovies }: GenreSwiperProps) => {
   );
 };
 
-export default memo(GenreSwiper);
+export default GenreSwiper;

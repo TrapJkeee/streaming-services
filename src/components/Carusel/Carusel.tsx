@@ -10,6 +10,7 @@ import "swiper/css/controller";
 import "swiper/css/navigation";
 
 import "./Carusel.scss";
+import { useGetTopMoviesQuery } from "store/api";
 
 const breakpoints = {
   577: {
@@ -30,9 +31,11 @@ const breakpoints = {
   },
 };
 const Carusel = () => {
-  const { data, status } = useSelector(selectTopMovies);
+  // const { data, status } = useSelector(selectTopMovies);
 
-  if (status === "loading") {
+  const { data, isLoading } = useGetTopMoviesQuery();
+
+  if (isLoading) {
     return <CaruselSkeleton />;
   }
   return (
@@ -45,7 +48,7 @@ const Carusel = () => {
           navigation={true}
           modules={[Navigation]}
         >
-          {data.map((item) => (
+          {data?.docs.map((item) => (
             <SwiperSlide>
               <CaruselItem
                 key={item.id}
